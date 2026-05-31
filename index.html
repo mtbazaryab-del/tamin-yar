@@ -1,67 +1,430 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>تأمین‌یار | بانک تأمین‌کنندگان و مشتریان</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>تأمین‌یار</title>
   <style>
-    *{box-sizing:border-box}body{margin:0;font-family:Tahoma,Arial,sans-serif;background:#f1f5f9;color:#0f172a}header{background:#020617;color:white;padding:22px 16px} .wrap{max-width:1180px;margin:0 auto}.top{display:flex;justify-content:space-between;gap:18px;align-items:center;flex-wrap:wrap}.logo{display:flex;gap:14px;align-items:center}.mark{width:54px;height:54px;border-radius:18px;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:28px}.logo h1{margin:0;font-size:30px}.logo p{margin:6px 0 0;color:#cbd5e1;font-size:13px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;min-width:min(100%,520px)}.stat{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:12px}.stat b{font-size:25px;display:block}.stat span{color:#cbd5e1;font-size:12px}.header-actions{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}button,a.btn{border:0;border-radius:14px;padding:10px 14px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;gap:7px;align-items:center;font-family:inherit}.btn-white{background:white;color:#020617}.btn-dark{background:#020617;color:white}.btn-soft{background:#e2e8f0;color:#0f172a}.btn-red{background:#fee2e2;color:#991b1b}.btn-green{background:#dcfce7;color:#166534}.tabs{background:white;border:1px solid #e2e8f0;border-radius:24px;padding:8px;margin:18px 0;display:flex;gap:8px;overflow:auto}.tab{white-space:nowrap;background:transparent;color:#475569}.tab.active{background:#020617;color:white}.grid{display:grid;grid-template-columns:370px 1fr;gap:18px}.card{background:white;border:1px solid #e2e8f0;border-radius:24px;padding:18px;box-shadow:0 1px 2px rgba(15,23,42,.04)}h2,h3{margin:0 0 10px}label{display:block;margin-bottom:12px;font-size:13px;font-weight:700;color:#334155}input,select,textarea{width:100%;border:1px solid #cbd5e1;background:#f8fafc;border-radius:14px;padding:11px 12px;font-family:inherit;margin-top:7px;outline:none}textarea{min-height:86px;resize:vertical}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.full{grid-column:1/-1}.searchbar{margin-bottom:14px}.list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.item{background:white;border:1px solid #e2e8f0;border-radius:22px;padding:16px}.item h3{font-size:18px}.muted{color:#64748b;font-size:13px;line-height:1.8}.badges{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}.badge{background:#f1f5f9;border-radius:999px;padding:5px 9px;font-size:12px;font-weight:700;color:#334155}.line{font-size:13px;line-height:2;color:#334155}.actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.empty{border:1px dashed #cbd5e1;border-radius:22px;padding:28px;text-align:center;color:#64748b;background:white}.toast{position:fixed;left:16px;bottom:16px;background:#020617;color:white;border-radius:16px;padding:12px 16px;font-weight:700;display:none;z-index:20}.section{display:none}.section.active{display:block}.hint{background:#f8fafc;border-radius:18px;padding:12px;line-height:1.9;color:#475569;font-size:13px;margin-top:10px}@media(max-width:900px){.grid{grid-template-columns:1fr}.list{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.formgrid{grid-template-columns:1fr}.logo h1{font-size:24px}}
+    :root{
+      --navy:#0b2d5c;
+      --navy2:#123b74;
+      --gold:#d8a73b;
+      --bg:#f4f7fb;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#64748b;
+      --line:#e2e8f0;
+      --green:#047857;
+      --red:#b91c1c;
+      --amber:#b45309;
+      --blueSoft:#eff6ff;
+      --greenSoft:#ecfdf5;
+      --redSoft:#fef2f2;
+      --amberSoft:#fffbeb;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:Tahoma,Arial,sans-serif;direction:rtl;padding-bottom:90px}
+    button,input,select,textarea{font-family:inherit}
+    .topbar{position:sticky;top:0;z-index:20;background:var(--navy);color:white;box-shadow:0 12px 30px rgba(11,45,92,.18)}
+    .topbar-inner{max-width:1150px;margin:auto;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .icon-btn{width:42px;height:42px;border:0;border-radius:16px;background:rgba(255,255,255,.12);color:white;display:grid;place-items:center;font-weight:900}
+    .top-title{text-align:center}
+    .top-title h1{font-size:20px;margin:0;font-weight:900}
+    .top-title p{margin:4px 0 0;color:#bfdbfe;font-size:12px}
+    .container{max-width:1150px;margin:auto;padding:18px 14px}
+    .page{display:none}.page.active{display:block}
+    .hero{position:relative;overflow:hidden;border-radius:32px;background:var(--navy);color:white;padding:26px;box-shadow:0 20px 45px rgba(11,45,92,.18)}
+    .hero:before{content:"";position:absolute;left:-70px;top:-70px;width:180px;height:180px;background:rgba(216,167,59,.20);filter:blur(30px);border-radius:50%}
+    .hero:after{content:"";position:absolute;right:80px;bottom:-120px;width:250px;height:250px;background:rgba(96,165,250,.22);filter:blur(40px);border-radius:50%}
+    .hero-content{position:relative;z-index:1}
+    .hero h2{font-size:34px;margin:0;font-weight:900}
+    .hero p{color:#dbeafe;line-height:1.9;font-size:14px;max-width:650px}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}
+    .stat{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:12px;text-align:center}
+    .stat b{font-size:26px;display:block}
+    .stat span{font-size:11px;color:#dbeafe}
+    .panel{background:white;border:1px solid var(--line);border-radius:30px;padding:18px;box-shadow:0 1px 2px rgba(15,23,42,.04);margin-top:16px}
+    .panel-title{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+    .panel-title .icon{width:44px;height:44px;border-radius:18px;background:var(--navy);color:white;display:grid;place-items:center}
+    .panel-title h3{margin:0;color:var(--navy);font-size:18px;font-weight:900}
+    .panel-title p{margin:4px 0 0;color:var(--muted);font-size:12px}
+    .circle-menu{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    @media(min-width:700px){.circle-menu{grid-template-columns:repeat(6,1fr)}}
+    .circle-item{border:0;background:transparent;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer}
+    .circle{width:82px;height:82px;background:white;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;color:var(--navy);box-shadow:0 12px 28px rgba(15,23,42,.08);font-size:30px;transition:.2s}
+    .circle-item:hover .circle{transform:translateY(-4px);background:var(--navy);color:white}
+    .circle-item span{font-size:12px;font-weight:900;color:#334155}
+    .grid-2{display:grid;grid-template-columns:1fr;gap:14px}
+    .grid-3{display:grid;grid-template-columns:1fr;gap:12px}
+    @media(min-width:800px){.grid-2{grid-template-columns:1fr 1fr}.grid-3{grid-template-columns:1fr 1fr 1fr}}
+    .form-grid{display:grid;grid-template-columns:1fr;gap:12px}
+    @media(min-width:820px){.form-grid{grid-template-columns:1fr 1fr}}
+    label span{display:block;font-size:13px;color:#334155;font-weight:900;margin-bottom:7px}
+    .input{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:16px;background:#fff;outline:none;font-size:14px}
+    .input:focus{border-color:var(--navy);box-shadow:0 0 0 4px rgba(11,45,92,.10)}
+    textarea.input{min-height:105px;resize:vertical}
+    .btn{border:0;border-radius:16px;padding:12px 15px;font-weight:900;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+    .btn-primary{background:var(--navy);color:white}.btn-primary:hover{background:var(--navy2)}
+    .btn-soft{background:#f1f5f9;color:#334155}.btn-soft:hover{background:#e2e8f0}
+    .btn-danger{background:var(--redSoft);color:var(--red)}
+    .btn-green{background:var(--greenSoft);color:var(--green)}
+    .btn-amber{background:var(--amberSoft);color:var(--amber)}
+    .btn-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+    .bottom-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line);z-index:30}
+    .bottom-inner{max-width:680px;margin:auto;display:grid;grid-template-columns:repeat(5,1fr);gap:5px;padding:7px}
+    .navbtn{border:0;border-radius:18px;background:transparent;color:#64748b;padding:8px 4px;font-size:11px;font-weight:900;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer}
+    .navbtn.active{background:var(--navy);color:white}
+    .card{background:white;border:1px solid var(--line);border-radius:26px;padding:16px;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+    .card h4{font-size:17px;color:var(--navy);margin:0 0 6px;font-weight:900}
+    .meta{font-size:12px;color:var(--muted);line-height:1.8}
+    .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+    .tag{background:var(--blueSoft);color:var(--navy);border-radius:999px;padding:5px 9px;font-size:11px;font-weight:900}
+    .status{border-radius:999px;padding:5px 10px;font-size:11px;font-weight:900}
+    .status.ok{background:var(--greenSoft);color:var(--green)}
+    .status.warn{background:var(--amberSoft);color:var(--amber)}
+    .status.bad{background:var(--redSoft);color:var(--red)}
+    .status.new{background:var(--blueSoft);color:var(--navy)}
+    .card-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+    .line{display:flex;gap:8px;color:#475569;font-size:13px;line-height:1.8;margin-top:8px}
+    .section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+    .section-head h2{color:var(--navy);margin:0;font-size:22px;font-weight:900}
+    .section-head p{margin:5px 0 0;color:var(--muted);font-size:13px}
+    .stepbar{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-top:15px}
+    .step{height:7px;border-radius:20px;background:#e2e8f0}.step.active{background:var(--gold)}
+    .check-grid{display:grid;grid-template-columns:1fr;gap:8px}
+    @media(min-width:620px){.check-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:950px){.check-grid{grid-template-columns:repeat(3,1fr)}}
+    .check-pill{border:1px solid var(--line);background:white;border-radius:16px;padding:11px 12px;font-size:13px;font-weight:900;color:#334155;display:flex;align-items:center;justify-content:space-between;cursor:pointer;text-align:right}
+    .check-pill.active{background:var(--navy);border-color:var(--navy);color:white}
+    .mini-title{font-weight:900;color:var(--navy);margin:4px 0 10px}
+    .selected-box{background:white;border:1px solid var(--line);border-radius:18px;padding:10px;font-size:13px;color:#475569;line-height:1.8;margin-top:8px}
+    .hidden{display:none!important}
+    .empty{border:1px dashed #cbd5e1;border-radius:26px;background:white;text-align:center;padding:30px;color:#64748b}
+    .toast{position:fixed;bottom:95px;left:14px;background:var(--navy);color:white;border-radius:18px;padding:12px 16px;font-weight:900;z-index:60;box-shadow:0 15px 35px rgba(0,0,0,.2)}
+    .export-card{background:#f8fafc;border:1px solid var(--line);border-radius:26px;padding:18px}
+    .export-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
   </style>
 </head>
 <body>
-<header><div class="wrap"><div class="top"><div class="logo"><div class="mark">🏗️</div><div><h1>تأمین‌یار</h1><p>اپ اختصاصی ثبت، جستجو و مدیریت تأمین‌کنندگان، محصولات، مشتریان و استعلام‌ها</p></div></div><div class="stats"><div class="stat"><b id="statSup">0</b><span>تأمین‌کننده</span></div><div class="stat"><b id="statPrd">0</b><span>محصول</span></div><div class="stat"><b id="statCus">0</b><span>مشتری</span></div><div class="stat"><b id="statInq">0</b><span>استعلام</span></div></div></div><div class="header-actions"><button class="btn-white" onclick="loadSamples()">بارگذاری نمونه</button><button class="btn-red" onclick="resetAll()">حذف همه اطلاعات</button><button class="btn-green" onclick="exportJSON()">خروجی پشتیبان</button><label class="btn btn-soft" style="margin:0">ورود پشتیبان<input type="file" accept="application/json" onchange="importJSON(event)" style="display:none"></label></div></div></header>
-<main class="wrap" style="padding:0 14px 28px"><nav class="tabs"><button class="tab active" onclick="showTab('search',this)">🔎 جستجوی تأمین‌کننده</button><button class="tab" onclick="showTab('suppliers',this)">🏢 تأمین‌کنندگان</button><button class="tab" onclick="showTab('products',this)">📦 محصولات</button><button class="tab" onclick="showTab('customers',this)">👥 مشتریان</button><button class="tab" onclick="showTab('inquiries',this)">📋 استعلام‌ها</button></nav>
-<section id="search" class="section active"><div class="grid"><div class="card"><h2>جستجوی ترکیبی</h2><label>محصول مورد تقاضا<input id="qProduct" placeholder="مثلاً سقف PVC، جدول بتنی، درب ضد سرقت" oninput="renderSearch()"></label><label>شهر مورد تقاضا / تحویل<input id="qCity" placeholder="مثلاً تهران، کرج، قزوین" oninput="renderSearch()"></label><label>نوع تأمین‌کننده<select id="qType" onchange="renderSearch()"><option value="">همه</option></select></label><label>وضعیت اعتبار<select id="qReliability" onchange="renderSearch()"><option value="">همه</option></select></label><div class="hint">جستجو هم شهر اصلی تأمین‌کننده را بررسی می‌کند، هم شهرهای قابل ارسال را. اگر تأمین‌کننده در تهران باشد ولی به کرج ارسال کند، در جستجوی کرج هم نمایش داده می‌شود.</div></div><div><h2>نتایج جستجو</h2><p class="muted" id="resultCount"></p><div class="list" id="searchResults"></div></div></div></section>
-<section id="suppliers" class="section"><div class="grid"><div class="card"><h2>ثبت تأمین‌کننده</h2><div class="formgrid"><input type="hidden" id="supId"><label>نام شرکت / فروشنده<input id="supName"></label><label>نوع تأمین‌کننده<select id="supType"></select></label><label>استان<input id="supProvince"></label><label>شهر اصلی<input id="supCity"></label><label class="full">دسته‌بندی<select id="supCategory"></select></label><label class="full">محصولات قابل تأمین<input id="supProducts" placeholder="با ویرگول جدا کن؛ مثل سقف PVC، دیوارپوش PVC"></label><label class="full">شهرهای قابل ارسال<input id="supCities" placeholder="تهران، کرج، قزوین"></label><label>شخص تماس<input id="supContact"></label><label>موبایل<input id="supMobile"></label><label>تلفن ثابت<input id="supPhone"></label><label>واتساپ<input id="supWhatsapp"></label><label>وب‌سایت<input id="supWebsite"></label><label>وضعیت اعتبار<select id="supReliability"></select></label><label>امتیاز ۱ تا ۵<input id="supRating" type="number" min="1" max="5" value="3"></label><label>آخرین تماس<input id="supLast" type="date"></label><label class="full">شرایط پرداخت<input id="supPayment"></label><label class="full">توضیحات<textarea id="supNotes"></textarea></label><div class="full actions"><button class="btn-dark" onclick="saveSupplier()">ذخیره تأمین‌کننده</button><button class="btn-soft" onclick="clearSupplierForm()">پاک کردن فرم</button></div></div></div><div><div class="card searchbar"><input id="supSearch" placeholder="جستجو در تأمین‌کنندگان..." oninput="renderSuppliers()"></div><div class="list" id="supList"></div></div></div></section>
-<section id="products" class="section"><div class="grid"><div class="card"><h2>ثبت محصول</h2><input type="hidden" id="prdId"><label>نام محصول<input id="prdName"></label><label>دسته‌بندی<select id="prdCategory"></select></label><label>واحد سنجش<input id="prdUnit" placeholder="متر مربع، عدد، تن، متر طول"></label><label>مشخصات مهم<input id="prdSpecs"></label><label>سوالات لازم هنگام استعلام<textarea id="prdQuestions"></textarea></label><div class="actions"><button class="btn-dark" onclick="saveProduct()">ذخیره محصول</button><button class="btn-soft" onclick="clearProductForm()">پاک کردن فرم</button></div></div><div><div class="card searchbar"><input id="prdSearch" placeholder="جستجو در محصولات..." oninput="renderProducts()"></div><div class="list" id="prdList"></div></div></div></section>
-<section id="customers" class="section"><div class="grid"><div class="card"><h2>ثبت مشتری</h2><input type="hidden" id="cusId"><label>نام مشتری / سازمان<input id="cusName"></label><label>نوع مشتری<select id="cusType"></select></label><label>شهر<input id="cusCity"></label><label>محصولات موردنیاز<input id="cusProducts" placeholder="با ویرگول جدا کن"></label><label>شخص تماس<input id="cusContact"></label><label>موبایل<input id="cusMobile"></label><label>وضعیت مشتری<input id="cusStatus" value="جدید"></label><label>توضیحات<textarea id="cusNotes"></textarea></label><div class="actions"><button class="btn-dark" onclick="saveCustomer()">ذخیره مشتری</button><button class="btn-soft" onclick="clearCustomerForm()">پاک کردن فرم</button></div></div><div><div class="card searchbar"><input id="cusSearch" placeholder="جستجو در مشتریان..." oninput="renderCustomers()"></div><div class="list" id="cusList"></div></div></div></section>
-<section id="inquiries" class="section"><div class="grid"><div class="card"><h2>ثبت استعلام</h2><input type="hidden" id="inqId"><label>تاریخ<input id="inqDate" type="date"></label><label>نام مشتری<input id="inqCustomer"></label><label>نام کالا<input id="inqProduct"></label><label>مقدار<input id="inqQty"></label><label>شهر تحویل<input id="inqCity"></label><label>مهلت پاسخ<input id="inqDeadline" type="date"></label><label>وضعیت<select id="inqStatus"></select></label><label>توضیحات / مشخصات فنی<textarea id="inqNotes"></textarea></label><div class="actions"><button class="btn-dark" onclick="saveInquiry()">ذخیره استعلام</button><button class="btn-soft" onclick="clearInquiryForm()">پاک کردن فرم</button></div></div><div><div class="card searchbar"><input id="inqSearch" placeholder="جستجو در استعلام‌ها..." oninput="renderInquiries()"></div><div class="list" id="inqList"></div></div></div></section>
-</main><div class="toast" id="toast"></div>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <button class="icon-btn" onclick="showPage('settings')">☰</button>
+      <div class="top-title">
+        <h1 id="pageTitle">تأمین‌یار</h1>
+        <p>مدیریت تأمین‌کنندگان، مشتریان و استعلام‌ها</p>
+      </div>
+      <button class="icon-btn">🔔</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="home" class="page active"></section>
+    <section id="search" class="page"></section>
+    <section id="suppliers" class="page"></section>
+    <section id="supplierForm" class="page"></section>
+    <section id="customers" class="page"></section>
+    <section id="customerForm" class="page"></section>
+    <section id="products" class="page"></section>
+    <section id="inquiries" class="page"></section>
+    <section id="reports" class="page"></section>
+    <section id="settings" class="page"></section>
+  </main>
+
+  <nav class="bottom-nav">
+    <div class="bottom-inner">
+      <button class="navbtn active" data-page="home" onclick="showPage('home')">🏠<span>خانه</span></button>
+      <button class="navbtn" data-page="search" onclick="showPage('search')">🔎<span>جستجو</span></button>
+      <button class="navbtn" data-page="inquiries" onclick="showPage('inquiries')">📋<span>استعلام</span></button>
+      <button class="navbtn" data-page="customers" onclick="showPage('customers')">👥<span>مشتریان</span></button>
+      <button class="navbtn" data-page="suppliers" onclick="showPage('suppliers')">🏢<span>تأمین‌کننده</span></button>
+    </div>
+  </nav>
+
 <script>
-const KEY='tamin_yar_html_v1';
-const categories=['مصالح سنگی، معدنی و خاکی','سیمان، آهک، گچ و پودرهای ساختمانی','بتن، فرآورده‌های بتنی و قطعات پیش‌ساخته','فولاد، آهن‌آلات و فلزات ساختمانی','آجر، سفال، بلوک و مصالح دیواری','سنگ ساختمانی، سرامیک، کاشی و پوشش کف','عایق‌ها، قیر و آسفالت','مصالح چوبی و فرآورده‌های چوبی','شیشه، آلومینیوم و نمای ساختمانی','درب، پنجره، یراق‌آلات و حفاظ','تأسیسات مکانیکی، لوله، اتصالات و شیرآلات','تأسیسات برقی، روشنایی و تجهیزات الکتریکی','رنگ، رزین، چسب و مواد شیمیایی ساختمانی','مصالح دکوراتیو، سقف کاذب و دیوارپوش','تجهیزات ایمنی، کارگاهی و ابزارآلات','ماشین‌آلات، تجهیزات عمرانی و راه‌سازی','مصالح و تجهیزات محوطه‌سازی','تجهیزات آب، فاضلاب، مخازن و پمپ‌ها','سایر کالاها و خدمات قابل تأمین'];
-const types=['تولیدکننده','نمایندگی','عمده‌فروش','واردکننده','پخش‌کننده','فروشگاه','پیمانکار اجرایی','خدماتی'];
-const reliabilities=['جدید','معتبر','نیازمند بررسی','نامعتبر','همکاری انجام شده'];
-const customerTypes=['اداره دولتی','شهرداری','پیمانکار','شرکت ساختمانی','انبوه‌ساز','کارخانه','فروشنده مصالح','شخص حقیقی','سایر'];
-const inquiryStatuses=['جدید','در حال قیمت‌گیری','قیمت دریافت شد','پیشنهاد ارسال شد','برنده شدیم','از دست رفت','لغو شد'];
+const STORAGE_KEY = "tamin_yar_v2_html_data";
+
+const supplierTypes = ["تولیدکننده","نمایندگی رسمی","عمده‌فروش","واردکننده","پخش‌کننده","فروشگاه","پیمانکار اجرایی","خدماتی","واسطه / بازاریاب","نامشخص"];
+const reliabilityStatuses = ["جدید","معتبر","نیازمند بررسی","نامعتبر","همکاری موفق داشته‌ایم","پاسخگو نیست","قیمت مناسب می‌دهد","ارسال سریع دارد","بدقول است"];
+const customerTypes = ["اداره دولتی","شهرداری","پیمانکار","شرکت ساختمانی","انبوه‌ساز","کارخانه","فروشنده مصالح","شخص حقیقی","شرکت خدماتی","سایر"];
+const customerStatuses = ["جدید","فعال","در حال مذاکره","خرید کرده","غیرفعال","نامناسب"];
+const inquiryStatuses = ["جدید","در حال قیمت‌گیری","قیمت دریافت شد","پیشنهاد ارسال شد","برنده شدیم","از دست رفت","لغو شد"];
+const paymentTerms = ["نقدی","کارت به کارت","چک","پیش‌پرداخت + تسویه قبل از بارگیری","پرداخت پس از تحویل","اعتباری برای مشتریان ثابت","توافقی"];
+const deliveryMethods = ["وانت","نیسان","خاور","کامیون","باربری","تیپاکس / پست","تحویل درب کارخانه","تحویل درب پروژه"];
+const ratingReasons = ["قیمت مناسب","پاسخ‌گویی خوب","ارسال سریع","کیفیت خوب","خوش‌قول","مدارک کامل","تنوع محصول","قیمت بالا","پاسخ‌گویی ضعیف","تأخیر در ارسال","کیفیت نامطمئن"];
+
+const categories = [
+ {name:"مصالح سنگی، معدنی و خاکی",products:["شن","ماسه","پوکه معدنی","خاک رس","خاک نباتی","بیس و ساب‌بیس","سنگ لاشه","سنگ کوهی"]},
+ {name:"سیمان، آهک، گچ و پودرهای ساختمانی",products:["سیمان تیپ 1","سیمان تیپ 2","سیمان سفید","آهک","گچ ساختمانی","پودر سنگ","ملات آماده"]},
+ {name:"بتن، فرآورده‌های بتنی و قطعات پیش‌ساخته",products:["بتن آماده","جدول بتنی","کفپوش بتنی","نیوجرسی بتنی","بلوک بتنی","دال بتنی","لوله بتنی","باکس بتنی"]},
+ {name:"فولاد، آهن‌آلات و فلزات ساختمانی",products:["میلگرد","تیرآهن","نبشی","ناودانی","ورق فولادی","پروفیل","لوله فولادی","رابیتس"]},
+ {name:"آجر، سفال، بلوک و مصالح دیواری",products:["آجر فشاری","آجر نما","بلوک سیمانی","بلوک سبک","سفال","هبلکس","بلوک لیکا"]},
+ {name:"سنگ ساختمانی، سرامیک، کاشی و پوشش کف",products:["سنگ تراورتن","سنگ مرمریت","سنگ گرانیت","کاشی","سرامیک","موزاییک","پارکت","لمینت"]},
+ {name:"عایق‌ها، قیر و آسفالت",products:["قیر","ایزوگام","آسفالت","عایق رطوبتی","عایق حرارتی","پشم سنگ","پشم شیشه"]},
+ {name:"مصالح چوبی و فرآورده‌های چوبی",products:["MDF","نئوپان","تخته چندلایی","چوب روسی","ترمووود","لمبه چوبی"]},
+ {name:"شیشه، آلومینیوم و نمای ساختمانی",products:["شیشه سکوریت","شیشه دوجداره","پروفیل آلومینیوم","نمای کامپوزیت","کرتین وال","لوور"]},
+ {name:"درب، پنجره، یراق‌آلات و حفاظ",products:["درب ضد سرقت","درب ضد حریق","درب چوبی","پنجره UPVC","یراق‌آلات","حفاظ","چهارچوب"]},
+ {name:"تأسیسات مکانیکی، لوله، اتصالات و شیرآلات",products:["لوله پنج لایه","لوله پلیکا","لوله پلی‌اتیلن","اتصالات","شیرآلات","پمپ","مخزن","فلش تانک"]},
+ {name:"تأسیسات برقی، روشنایی و تجهیزات الکتریکی",products:["سیم و کابل","کلید و پریز","تابلو برق","چراغ","پروژکتور","داکت","لوله برق","فیوز"]},
+ {name:"رنگ، رزین، چسب و مواد شیمیایی ساختمانی",products:["رنگ ساختمانی","رنگ صنعتی","رزین","چسب کاشی","چسب سنگ","افزودنی بتن","پرایمر"]},
+ {name:"مصالح دکوراتیو، سقف کاذب و دیوارپوش",products:["سقف PVC","دیوارپوش PVC","قرنیز PVC","سقف کاذب کناف","تایل گچی","تایل آلومینیومی","دیوارپوش فومی","ابزار دکوراتیو"]},
+ {name:"تجهیزات ایمنی، کارگاهی و ابزارآلات",products:["کلاه ایمنی","کفش ایمنی","دستکش","لباس کار","داربست","فرغون","دریل","بتونیر"]},
+ {name:"ماشین‌آلات، تجهیزات عمرانی و راه‌سازی",products:["بیل مکانیکی","لودر","غلتک","گریدر","کمپرسور","ویبراتور بتن","کاتر آسفالت"]},
+ {name:"مصالح و تجهیزات محوطه‌سازی",products:["کفپوش محوطه","جدول باغچه","چمن مصنوعی","چراغ محوطه","نیمکت","آلاچیق","سنگ مالون"]},
+ {name:"تجهیزات آب، فاضلاب، مخازن و پمپ‌ها",products:["مخزن آب","سپتیک تانک","پمپ آب","پمپ لجن‌کش","منهول","دریچه چدنی","لوله کاروگیت"]},
+ {name:"سایر کالاها و خدمات قابل تأمین",products:["حمل بار","نصب","اجرای پروژه","خدمات فنی","کالای سفارشی"]}
+];
+
+const provinces = [
+{name:"آذربایجان شرقی",cities:["تبریز","مراغه","مرند","میانه","اهر","بناب","شبستر","سراب","آذرشهر","هریس","جلفا","ملکان"]},
+{name:"آذربایجان غربی",cities:["ارومیه","خوی","میاندوآب","بوکان","مهاباد","سلماس","نقده","پیرانشهر","اشنویه","شاهین‌دژ","ماکو","تکاب"]},
+{name:"اردبیل",cities:["اردبیل","پارس‌آباد","مشگین‌شهر","خلخال","گرمی","بیله‌سوار","نمین","نیر","کوثر","سرعین"]},
+{name:"اصفهان",cities:["اصفهان","کاشان","خمینی‌شهر","نجف‌آباد","شاهین‌شهر","شهرضا","فلاورجان","لنجان","مبارکه","آران و بیدگل","نائین","گلپایگان"]},
+{name:"البرز",cities:["کرج","فردیس","هشتگرد","نظرآباد","اشتهارد","طالقان","چهارباغ","ماهدشت","کمال‌شهر","محمدشهر"]},
+{name:"ایلام",cities:["ایلام","دهلران","ایوان","آبدانان","دره‌شهر","مهران","ملکشاهی","چرداول","سیروان"]},
+{name:"بوشهر",cities:["بوشهر","برازجان","گناوه","کنگان","دیر","دیلم","جم","عسلویه","تنگستان","دشتی"]},
+{name:"تهران",cities:["تهران","ری","شمیرانات","اسلامشهر","شهریار","ملارد","قدس","رباط‌کریم","بهارستان","پاکدشت","ورامین","قرچک","پردیس","دماوند","فیروزکوه"]},
+{name:"چهارمحال و بختیاری",cities:["شهرکرد","بروجن","فارسان","لردگان","اردل","کوهرنگ","سامان","بن","کیار"]},
+{name:"خراسان جنوبی",cities:["بیرجند","قائن","فردوس","نهبندان","طبس","درمیان","سرایان","سربیشه","بشرویه","زیرکوه"]},
+{name:"خراسان رضوی",cities:["مشهد","نیشابور","سبزوار","تربت‌حیدریه","کاشمر","قوچان","تربت‌جام","چناران","سرخس","گناباد","خواف","درگز"]},
+{name:"خراسان شمالی",cities:["بجنورد","شیروان","اسفراین","مانه و سملقان","جاجرم","فاروج","گرمه","راز و جرگلان"]},
+{name:"خوزستان",cities:["اهواز","آبادان","خرمشهر","دزفول","اندیمشک","ماهشهر","ایذه","شوشتر","بهبهان","شادگان","رامهرمز","مسجدسلیمان"]},
+{name:"زنجان",cities:["زنجان","ابهر","خرمدره","قیدار","طارم","ماهنشان","ایجرود","سلطانیه"]},
+{name:"سمنان",cities:["سمنان","شاهرود","دامغان","گرمسار","مهدی‌شهر","سرخه","آرادان","میامی"]},
+{name:"سیستان و بلوچستان",cities:["زاهدان","زابل","چابهار","ایرانشهر","سراوان","خاش","کنارک","نیک‌شهر","سرباز","زهک"]},
+{name:"فارس",cities:["شیراز","مرودشت","کازرون","جهرم","فسا","داراب","لار","آباده","نی‌ریز","اقلید","استهبان","لامرد"]},
+{name:"قزوین",cities:["قزوین","البرز","آبیک","تاکستان","بوئین‌زهرا","آوج","محمدیه","اقبالیه"]},
+{name:"قم",cities:["قم","جعفریه","کهک","قنوات","سلفچگان","دستجرد"]},
+{name:"کردستان",cities:["سنندج","سقز","مریوان","بانه","قروه","بیجار","کامیاران","دیواندره","دهگلان","سروآباد"]},
+{name:"کرمان",cities:["کرمان","سیرجان","رفسنجان","جیرفت","بم","زرند","کهنوج","بافت","بردسیر","شهربابک"]},
+{name:"کرمانشاه",cities:["کرمانشاه","اسلام‌آباد غرب","سنقر","هرسین","کنگاور","جوانرود","صحنه","پاوه","سرپل ذهاب","قصر شیرین"]},
+{name:"کهگیلویه و بویراحمد",cities:["یاسوج","دهدشت","گچساران","دوگنبدان","باشت","چرام","لنده","سی‌سخت"]},
+{name:"گلستان",cities:["گرگان","گنبد کاووس","علی‌آباد کتول","آق‌قلا","کردکوی","بندر ترکمن","مینودشت","کلاله","آزادشهر","رامیان"]},
+{name:"گیلان",cities:["رشت","انزلی","لاهیجان","لنگرود","آستارا","رودسر","فومن","صومعه‌سرا","تالش","رودبار"]},
+{name:"لرستان",cities:["خرم‌آباد","بروجرد","دورود","الیگودرز","کوهدشت","نورآباد","ازنا","پلدختر","الشتر"]},
+{name:"مازندران",cities:["ساری","بابل","آمل","قائم‌شهر","بهشهر","تنکابن","نوشهر","چالوس","نور","محمودآباد","رامسر","نکا"]},
+{name:"مرکزی",cities:["اراک","ساوه","خمین","محلات","دلیجان","شازند","تفرش","آشتیان","کمیجان","فراهان"]},
+{name:"هرمزگان",cities:["بندرعباس","میناب","قشم","کیش","بندر لنگه","رودان","جاسک","حاجی‌آباد","پارسیان","بستک"]},
+{name:"همدان",cities:["همدان","ملایر","نهاوند","تویسرکان","کبودرآهنگ","رزن","اسدآباد","بهار","فامنین"]},
+{name:"یزد",cities:["یزد","میبد","اردکان","بافق","ابرکوه","مهریز","تفت","اشکذر","خاتم","بهاباد"]}
+];
+
+function uid(prefix){return prefix+"-"+Date.now()+"-"+Math.floor(Math.random()*100000)}
+function norm(v){return String(v||"").trim().replace(/ي/g,"ی").replace(/ك/g,"ک").replace(/‌/g," ").toLowerCase()}
 function today(){return new Date().toISOString().slice(0,10)}
-function uid(p){return p+'-'+Date.now()+'-'+Math.floor(Math.random()*9999)}
-function norm(s){return String(s||'').trim().replace(/ي/g,'ی').replace(/ك/g,'ک').toLowerCase()}
-function split(s){return String(s||'').split(/[،,\n]/).map(x=>x.trim()).filter(Boolean)}
-function includesAny(arr,q){q=norm(q); if(!q) return true; return (arr||[]).some(x=>norm(x).includes(q)||q.includes(norm(x)))}
-const samples={suppliers:[{id:uid('SUP'),name:'آذران پلاستیک نمونه',type:'تولیدکننده',province:'تهران',city:'تهران',category:'مصالح دکوراتیو، سقف کاذب و دیوارپوش',products:['سقف PVC','دیوارپوش PVC','قرنیز PVC'],serviceCities:['تهران','کرج','قزوین','قم','سراسر کشور'],contact:'واحد فروش',mobile:'09xxxxxxxxx',phone:'021xxxxxxxx',whatsapp:'09xxxxxxxxx',website:'',reliability:'معتبر',rating:4,lastContact:today(),payment:'نقدی / توافقی',notes:'نمونه اولیه برای تست جستجو. اطلاعات واقعی را جایگزین کنید.'},{id:uid('SUP'),name:'بتن‌سازان نمونه البرز',type:'تولیدکننده',province:'البرز',city:'کرج',category:'بتن، فرآورده‌های بتنی و قطعات پیش‌ساخته',products:['جدول بتنی','کفپوش بتنی','نیوجرسی بتنی'],serviceCities:['کرج','تهران','هشتگرد','قزوین'],contact:'مدیر فروش',mobile:'09xxxxxxxxx',phone:'026xxxxxxxx',whatsapp:'09xxxxxxxxx',website:'',reliability:'جدید',rating:3,lastContact:today(),payment:'پیش‌پرداخت + تسویه قبل از بارگیری',notes:'نمونه اولیه برای کالاهای بتنی.'}],products:[{id:uid('PRD'),name:'سقف PVC',category:'مصالح دکوراتیو، سقف کاذب و دیوارپوش',unit:'متر مربع',specs:'ضخامت، عرض، طرح، برند، زیرسازی، ضد رطوبت بودن',questions:'قیمت هر متر؟ ضخامت؟ طرح‌ها؟ زمان تحویل؟ هزینه ارسال؟'},{id:uid('PRD'),name:'جدول بتنی',category:'بتن، فرآورده‌های بتنی و قطعات پیش‌ساخته',unit:'عدد',specs:'ابعاد، عیار بتن، وزن، مقاومت، نوع قالب',questions:'ابعاد دقیق؟ قیمت کارخانه؟ ظرفیت تولید؟ هزینه حمل؟'}],customers:[],inquiries:[]};
-let db=JSON.parse(localStorage.getItem(KEY)||'null')||structuredClone(samples);
-function save(){localStorage.setItem(KEY,JSON.stringify(db)); renderAll()}
-function toast(t){let e=document.getElementById('toast');e.textContent=t;e.style.display='block';setTimeout(()=>e.style.display='none',2200)}
-function opt(id,arr,blank=false){let e=document.getElementById(id); if(!e)return; e.innerHTML=(blank?'<option value="">همه</option>':'')+arr.map(x=>`<option value="${x}">${x}</option>`).join('')}
-function init(){['supCategory','prdCategory'].forEach(id=>opt(id,categories)); ['supType'].forEach(id=>opt(id,types)); opt('qType',types,true); opt('supReliability',reliabilities); opt('qReliability',reliabilities,true); opt('cusType',customerTypes); opt('inqStatus',inquiryStatuses); document.getElementById('supLast').value=today(); document.getElementById('inqDate').value=today(); renderAll()}
-function showTab(id,btn){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));btn.classList.add('active')}
-function renderAll(){document.getElementById('statSup').textContent=db.suppliers.length;document.getElementById('statPrd').textContent=db.products.length;document.getElementById('statCus').textContent=db.customers.length;document.getElementById('statInq').textContent=db.inquiries.length;renderSearch();renderSuppliers();renderProducts();renderCustomers();renderInquiries()}
-function card(html){return `<div class="item">${html}</div>`}
-function renderSearch(){let p=document.getElementById('qProduct').value,c=document.getElementById('qCity').value,t=document.getElementById('qType').value,r=document.getElementById('qReliability').value; let res=db.suppliers.filter(s=>(includesAny(s.products,p)||norm(s.name).includes(norm(p)))&&(!c||norm(s.city).includes(norm(c))||norm(s.province).includes(norm(c))||includesAny(s.serviceCities,c))&&(!t||s.type===t)&&(!r||s.reliability===r)); document.getElementById('resultCount').textContent=res.length+' تأمین‌کننده پیدا شد'; document.getElementById('searchResults').innerHTML=res.length?res.map(s=>card(`<h3>${s.name}</h3><div class="badges"><span class="badge">${s.type||'-'}</span><span class="badge">${s.reliability||'-'}</span><span class="badge">${s.city||'-'}</span><span class="badge">امتیاز ${s.rating||0}</span></div><p class="line"><b>محصولات:</b> ${(s.products||[]).join('، ')}</p><p class="line"><b>ارسال به:</b> ${(s.serviceCities||[]).join('، ')}</p><p class="line"><b>شخص تماس:</b> ${s.contact||'-'}</p><div class="actions">${s.mobile?`<a class="btn btn-dark" href="tel:${s.mobile}">تماس</a>`:''}${s.whatsapp?`<a class="btn btn-soft" target="_blank" href="https://wa.me/${String(s.whatsapp).replace(/\D/g,'')}">واتساپ</a>`:''}</div><p class="muted">${s.notes||''}</p>`)).join(''):'<div class="empty">نتیجه‌ای پیدا نشد. محصول یا شهر را ساده‌تر بنویس، یا تأمین‌کننده جدید اضافه کن.</div>'}
-function renderSuppliers(){let q=norm(document.getElementById('supSearch').value);let arr=db.suppliers.filter(s=>norm([s.name,s.city,s.type,s.reliability,...(s.products||[])].join(' ')).includes(q));document.getElementById('supList').innerHTML=arr.length?arr.map(s=>card(`<h3>${s.name}</h3><p class="muted">${s.type} | ${s.city} | ${s.reliability}</p><p class="line">${(s.products||[]).join('، ')}</p><div class="actions"><button class="btn-soft" onclick="editSupplier('${s.id}')">ویرایش</button><button class="btn-red" onclick="del('suppliers','${s.id}')">حذف</button></div>`)).join(''):'<div class="empty">تأمین‌کننده‌ای ثبت نشده.</div>'}
-function saveSupplier(){let id=document.getElementById('supId').value;let item={id:id||uid('SUP'),name:v('supName'),type:v('supType'),province:v('supProvince'),city:v('supCity'),category:v('supCategory'),products:split(v('supProducts')),serviceCities:split(v('supCities')),contact:v('supContact'),mobile:v('supMobile'),phone:v('supPhone'),whatsapp:v('supWhatsapp'),website:v('supWebsite'),reliability:v('supReliability'),rating:v('supRating'),lastContact:v('supLast'),payment:v('supPayment'),notes:v('supNotes')}; if(!item.name)return toast('نام تأمین‌کننده را وارد کن'); db.suppliers=id?db.suppliers.map(x=>x.id===id?item:x):[item,...db.suppliers]; clearSupplierForm(); save(); toast('تأمین‌کننده ذخیره شد')}
-function editSupplier(id){let s=db.suppliers.find(x=>x.id===id);['supId','supName','supType','supProvince','supCity','supCategory','supContact','supMobile','supPhone','supWhatsapp','supWebsite','supReliability','supRating','supLast','supPayment','supNotes'].forEach(k=>{let f=k.replace('sup','').toLowerCase();}); set('supId',s.id);set('supName',s.name);set('supType',s.type);set('supProvince',s.province);set('supCity',s.city);set('supCategory',s.category);set('supProducts',(s.products||[]).join('، '));set('supCities',(s.serviceCities||[]).join('، '));set('supContact',s.contact);set('supMobile',s.mobile);set('supPhone',s.phone);set('supWhatsapp',s.whatsapp);set('supWebsite',s.website);set('supReliability',s.reliability);set('supRating',s.rating);set('supLast',s.lastContact);set('supPayment',s.payment);set('supNotes',s.notes);document.querySelector('[onclick*="suppliers"]').click();scrollTo(0,0)}
-function clearSupplierForm(){['supId','supName','supProvince','supCity','supProducts','supCities','supContact','supMobile','supPhone','supWhatsapp','supWebsite','supRating','supLast','supPayment','supNotes'].forEach(id=>set(id,''));set('supRating','3');set('supLast',today())}
-function renderProducts(){let q=norm(v('prdSearch'));let arr=db.products.filter(p=>norm([p.name,p.category,p.specs].join(' ')).includes(q));document.getElementById('prdList').innerHTML=arr.length?arr.map(p=>card(`<h3>${p.name}</h3><p class="muted">${p.category} | ${p.unit||'بدون واحد'}</p><p class="line">${p.specs||''}</p><div class="actions"><button class="btn-soft" onclick="editProduct('${p.id}')">ویرایش</button><button class="btn-red" onclick="del('products','${p.id}')">حذف</button></div>`)).join(''):'<div class="empty">محصولی ثبت نشده.</div>'}
-function saveProduct(){let id=v('prdId');let item={id:id||uid('PRD'),name:v('prdName'),category:v('prdCategory'),unit:v('prdUnit'),specs:v('prdSpecs'),questions:v('prdQuestions')}; if(!item.name)return toast('نام محصول را وارد کن'); db.products=id?db.products.map(x=>x.id===id?item:x):[item,...db.products];clearProductForm();save();toast('محصول ذخیره شد')}
-function editProduct(id){let p=db.products.find(x=>x.id===id);set('prdId',p.id);set('prdName',p.name);set('prdCategory',p.category);set('prdUnit',p.unit);set('prdSpecs',p.specs);set('prdQuestions',p.questions);document.querySelector('[onclick*="products"]').click();scrollTo(0,0)}
-function clearProductForm(){['prdId','prdName','prdUnit','prdSpecs','prdQuestions'].forEach(id=>set(id,''))}
-function renderCustomers(){let q=norm(v('cusSearch'));let arr=db.customers.filter(c=>norm([c.name,c.city,c.type,c.status,...(c.products||[])].join(' ')).includes(q));document.getElementById('cusList').innerHTML=arr.length?arr.map(c=>card(`<h3>${c.name}</h3><p class="muted">${c.type} | ${c.city} | ${c.status}</p><p class="line">${(c.products||[]).join('، ')}</p><div class="actions"><button class="btn-soft" onclick="editCustomer('${c.id}')">ویرایش</button><button class="btn-red" onclick="del('customers','${c.id}')">حذف</button></div>`)).join(''):'<div class="empty">مشتری‌ای ثبت نشده.</div>'}
-function saveCustomer(){let id=v('cusId');let item={id:id||uid('CUS'),name:v('cusName'),type:v('cusType'),city:v('cusCity'),products:split(v('cusProducts')),contact:v('cusContact'),mobile:v('cusMobile'),status:v('cusStatus'),notes:v('cusNotes')}; if(!item.name)return toast('نام مشتری را وارد کن'); db.customers=id?db.customers.map(x=>x.id===id?item:x):[item,...db.customers];clearCustomerForm();save();toast('مشتری ذخیره شد')}
-function editCustomer(id){let c=db.customers.find(x=>x.id===id);set('cusId',c.id);set('cusName',c.name);set('cusType',c.type);set('cusCity',c.city);set('cusProducts',(c.products||[]).join('، '));set('cusContact',c.contact);set('cusMobile',c.mobile);set('cusStatus',c.status);set('cusNotes',c.notes);document.querySelector('[onclick*="customers"]').click();scrollTo(0,0)}
-function clearCustomerForm(){['cusId','cusName','cusCity','cusProducts','cusContact','cusMobile','cusNotes'].forEach(id=>set(id,''));set('cusStatus','جدید')}
-function renderInquiries(){let q=norm(v('inqSearch'));let arr=db.inquiries.filter(i=>norm([i.customer,i.product,i.city,i.status].join(' ')).includes(q));document.getElementById('inqList').innerHTML=arr.length?arr.map(i=>card(`<h3>${i.product}</h3><p class="muted">${i.customer||'بدون مشتری'} | ${i.city} | ${i.status}</p><p class="line">مقدار: ${i.qty||'-'} | مهلت: ${i.deadline||'-'}</p><div class="actions"><button class="btn-soft" onclick="editInquiry('${i.id}')">ویرایش</button><button class="btn-red" onclick="del('inquiries','${i.id}')">حذف</button></div>`)).join(''):'<div class="empty">استعلامی ثبت نشده.</div>'}
-function saveInquiry(){let id=v('inqId');let item={id:id||uid('INQ'),date:v('inqDate'),customer:v('inqCustomer'),product:v('inqProduct'),qty:v('inqQty'),city:v('inqCity'),deadline:v('inqDeadline'),status:v('inqStatus'),notes:v('inqNotes')}; if(!item.product)return toast('نام کالا را وارد کن'); db.inquiries=id?db.inquiries.map(x=>x.id===id?item:x):[item,...db.inquiries];clearInquiryForm();save();toast('استعلام ذخیره شد')}
-function editInquiry(id){let i=db.inquiries.find(x=>x.id===id);set('inqId',i.id);set('inqDate',i.date);set('inqCustomer',i.customer);set('inqProduct',i.product);set('inqQty',i.qty);set('inqCity',i.city);set('inqDeadline',i.deadline);set('inqStatus',i.status);set('inqNotes',i.notes);document.querySelector('[onclick*="inquiries"]').click();scrollTo(0,0)}
-function clearInquiryForm(){['inqId','inqCustomer','inqProduct','inqQty','inqCity','inqDeadline','inqNotes'].forEach(id=>set(id,''));set('inqDate',today())}
-function del(table,id){if(!confirm('این مورد حذف شود؟'))return;db[table]=db[table].filter(x=>x.id!==id);save();toast('حذف شد')}
-function resetAll(){if(!confirm('همه اطلاعات حذف شود؟'))return;db={suppliers:[],products:[],customers:[],inquiries:[]};save();toast('اطلاعات حذف شد')}
-function loadSamples(){db=structuredClone(samples);save();toast('داده نمونه بارگذاری شد')}
-function exportJSON(){let blob=new Blob([JSON.stringify(db,null,2)],{type:'application/json'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='tamin-yar-backup.json';a.click();URL.revokeObjectURL(a.href)}
-function importJSON(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{db=JSON.parse(r.result);save();toast('پشتیبان وارد شد')}catch{toast('فایل معتبر نیست')}};r.readAsText(f)}
-function v(id){return document.getElementById(id)?.value||''} function set(id,val){let e=document.getElementById(id); if(e)e.value=val||''}
-init();
+function unique(a){return [...new Set((a||[]).filter(Boolean))]}
+function join(a){return (a||[]).join("، ")}
+function citiesOf(s){return unique((s.serviceAreas||[]).flatMap(a=>a.cities||[]))}
+function areaLabel(s){return !s.serviceAreas?.length ? "—" : s.serviceAreas.map(a=>a.province+": "+join(a.cities)).join(" | ")}
+function statusClass(s){if(["معتبر","همکاری موفق داشته‌ایم"].includes(s))return"ok";if(s==="نیازمند بررسی")return"warn";if(s==="نامعتبر")return"bad";return"new"}
+
+const seedData = {
+ suppliers:[
+  {id:uid("SUP"),name:"آذران پلاستیک نمونه",types:["تولیدکننده"],mainProvince:"تهران",mainCity:"تهران",categories:["مصالح دکوراتیو، سقف کاذب و دیوارپوش"],products:["سقف PVC","دیوارپوش PVC","قرنیز PVC"],serviceAreas:[{province:"تهران",cities:["تهران","شهریار","قدس"]},{province:"البرز",cities:["کرج","فردیس","هشتگرد"]}],contactPerson:"واحد فروش",contactRole:"مدیر فروش",mobile:"09xxxxxxxxx",phone:"021xxxxxxxx",whatsapp:"09xxxxxxxxx",website:"",paymentTerms:["نقدی","توافقی"],deliveryMethods:["باربری","تحویل درب پروژه"],reliability:"معتبر",rating:4,ratingReasons:["پاسخ‌گویی خوب","ارسال سریع"],lastContact:today(),notes:"نمونه اولیه برای تست جستجو. اطلاعات واقعی را جایگزین کنید."},
+  {id:uid("SUP"),name:"بتن‌سازان نمونه البرز",types:["تولیدکننده"],mainProvince:"البرز",mainCity:"کرج",categories:["بتن، فرآورده‌های بتنی و قطعات پیش‌ساخته"],products:["جدول بتنی","کفپوش بتنی","نیوجرسی بتنی"],serviceAreas:[{province:"البرز",cities:["کرج","هشتگرد","نظرآباد","اشتهارد"]},{province:"قزوین",cities:["قزوین","آبیک"]}],contactPerson:"مدیر فروش",contactRole:"مدیر فروش",mobile:"09xxxxxxxxx",phone:"026xxxxxxxx",whatsapp:"09xxxxxxxxx",website:"",paymentTerms:["پیش‌پرداخت + تسویه قبل از بارگیری"],deliveryMethods:["خاور","کامیون"],reliability:"جدید",rating:3,ratingReasons:["تنوع محصول"],lastContact:today(),notes:"نمونه اولیه برای کالاهای بتنی."}
+ ],
+ customers:[{id:uid("CUS"),name:"بازرگانی کیان سازه نمونه",type:"پیمانکار",province:"تهران",city:"تهران",productsNeeded:["سقف PVC","درب ضد سرقت"],contactPerson:"آقای رضایی",mobile:"09xxxxxxxxx",status:"فعال",notes:"مشتری نمونه برای تست خروجی و گزارش."}],
+ products: categories.flatMap(c=>c.products.map(p=>({id:uid("PRD"),name:p,category:c.name,unit:"",specs:""}))).slice(0,50),
+ inquiries:[]
+};
+let data = loadData();
+let supplierStep = 1;
+let editingSupplierId = null;
+let editingCustomerId = null;
+let supplierDraft = null;
+let customerDraft = null;
+
+function loadData(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY))||seedData}catch{return seedData}}
+function saveData(){localStorage.setItem(STORAGE_KEY,JSON.stringify(data))}
+function toast(msg){let t=document.createElement("div");t.className="toast";t.textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),2300)}
+function showPage(id){
+ document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+ document.getElementById(id).classList.add("active");
+ document.querySelectorAll(".navbtn").forEach(b=>b.classList.toggle("active",b.dataset.page===id));
+ const titles={home:"تأمین‌یار",search:"جستجوی تأمین‌کننده",suppliers:"بانک تأمین‌کنندگان",supplierForm:"افزودن تأمین‌کننده",customers:"بانک مشتریان",customerForm:"افزودن مشتری",products:"بانک محصولات",inquiries:"استعلام‌ها",reports:"گزارش‌ها و خروجی",settings:"تنظیمات"};
+ document.getElementById("pageTitle").textContent=titles[id]||"تأمین‌یار";
+ window.scrollTo({top:0,behavior:"smooth"});
+ renderAll();
+}
+function renderAll(){renderHome();renderSearch();renderSuppliers();renderCustomers();renderProducts();renderInquiries();renderReports();renderSettings();}
+function iconText(i){return `<span aria-hidden="true">${i}</span>`}
+function optionList(arr, selected=""){return arr.map(x=>`<option value="${x}" ${x===selected?"selected":""}>${x}</option>`).join("")}
+function provinceOptions(selected=""){return `<option value="">انتخاب استان</option>`+provinces.map(p=>`<option ${p.name===selected?"selected":""}>${p.name}</option>`).join("")}
+function cityOptions(provinceName, selected=""){let p=provinces.find(x=>x.name===provinceName);return `<option value="">انتخاب شهر</option>`+(p?p.cities.map(c=>`<option ${c===selected?"selected":""}>${c}</option>`).join(""):"")}
+
+function renderHome(){
+ document.getElementById("home").innerHTML=`
+ <div class="hero"><div class="hero-content">
+  <h2>تأمین‌یار</h2>
+  <p>سامانه اختصاصی مدیریت تأمین‌کنندگان، مشتریان، محصولات، شهرهای پوشش و گزارش‌گیری حرفه‌ای.</p>
+  <div class="stats">
+   <div class="stat"><b>${data.suppliers.length}</b><span>تأمین‌کننده</span></div>
+   <div class="stat"><b>${data.customers.length}</b><span>مشتری</span></div>
+   <div class="stat"><b>${data.products.length}</b><span>محصول</span></div>
+   <div class="stat"><b>${data.inquiries.length}</b><span>استعلام</span></div>
+  </div></div></div>
+ <div class="panel">
+  <div class="section-head"><div><h2>دسترسی سریع</h2><p>بخش موردنظر را انتخاب کن.</p></div><b style="color:var(--gold);font-size:28px">◆</b></div>
+  <div class="circle-menu">
+   ${circle("🏢","تأمین‌کنندگان","suppliers")}
+   ${circle("👥","مشتریان","customers")}
+   ${circle("📦","محصولات","products")}
+   ${circle("📋","استعلام‌ها","inquiries")}
+   ${circle("🔎","جستجو","search")}
+   ${circle("📊","گزارش‌ها","reports")}
+  </div>
+ </div>
+ <div class="panel">
+  <div class="panel-title"><div class="icon">🔎</div><div><h3>جستجوی سریع تأمین‌کننده</h3><p>محصول و شهر مورد تقاضا را وارد کن.</p></div></div>
+  <div class="grid-3"><input id="quickProduct" class="input" placeholder="مثلاً سقف PVC"/><input id="quickCity" class="input" placeholder="مثلاً کرج"/><button class="btn btn-primary" onclick="quickSearch()">جستجو</button></div>
+  <div class="tags">${data.suppliers.slice(0,4).map(s=>`<span class="tag">${s.name}</span>`).join("")}</div>
+ </div>`;
+}
+function circle(icon,label,page){return `<button class="circle-item" onclick="showPage('${page}')"><div class="circle">${icon}</div><span>${label}</span></button>`}
+function quickSearch(){showPage("search"); setTimeout(()=>{document.getElementById("qProduct").value=document.getElementById("quickProduct").value;document.getElementById("qCity").value=document.getElementById("quickCity").value;runSearch()},50)}
+
+function renderSearch(){
+ document.getElementById("search").innerHTML=`
+ <div class="grid-2" style="grid-template-columns:minmax(280px,360px) 1fr">
+  <div class="panel" style="height:max-content"><div class="panel-title"><div class="icon">⚙️</div><div><h3>جستجوی هوشمند</h3><p>براساس محصول، شهر، نوع و اعتبار</p></div></div>
+   <label><span>محصول یا خدمت</span><input id="qProduct" class="input" oninput="runSearch()" placeholder="سقف PVC، جدول بتنی، درب ضد سرقت..."></label><br>
+   <label><span>شهر مورد تقاضا</span><input id="qCity" class="input" oninput="runSearch()" placeholder="کرج، تهران، هشتگرد..."></label><br>
+   <label><span>نوع تأمین‌کننده</span><select id="qType" class="input" onchange="runSearch()"><option value="">همه</option>${optionList(supplierTypes)}</select></label><br>
+   <label><span>وضعیت اعتبار</span><select id="qStatus" class="input" onchange="runSearch()"><option value="">همه</option>${optionList(reliabilityStatuses)}</select></label>
+  </div>
+  <div><div class="section-head"><div><h2>نتایج جستجو</h2><p id="searchCount">—</p></div></div><div id="searchResults" class="grid-2"></div></div>
+ </div>`;
+ runSearch();
+}
+function runSearch(){
+ let p=norm(document.getElementById("qProduct")?.value), c=norm(document.getElementById("qCity")?.value), t=document.getElementById("qType")?.value||"", st=document.getElementById("qStatus")?.value||"";
+ let res=data.suppliers.filter(s=>{
+  let productOk=!p||(s.products||[]).some(x=>norm(x).includes(p)||p.includes(norm(x)));
+  let cityList=citiesOf(s);
+  let cityOk=!c||cityList.some(x=>norm(x).includes(c)||c.includes(norm(x)))||norm(s.mainCity).includes(c)||norm(s.mainProvince).includes(c);
+  let typeOk=!t||(s.types||[]).includes(t);
+  let statusOk=!st||s.reliability===st;
+  return productOk&&cityOk&&typeOk&&statusOk;
+ });
+ document.getElementById("searchCount").textContent=res.length+" تأمین‌کننده یافت شد";
+ document.getElementById("searchResults").innerHTML=res.length?res.map(supplierCard).join(""):`<div class="empty">نتیجه‌ای پیدا نشد.</div>`;
+}
+
+function supplierCard(s, actions=false){
+ return `<div class="card">
+  <div class="card-head"><div><h4>${s.name}</h4><div class="meta">${join(s.types)} | ${s.mainProvince||"—"} - ${s.mainCity||"—"}</div></div><span class="status ${statusClass(s.reliability)}">${s.reliability||"جدید"}</span></div>
+  <div class="tags">${(s.products||[]).slice(0,6).map(p=>`<span class="tag">${p}</span>`).join("")}</div>
+  <div class="line">📍 <div><b>پوشش:</b> ${areaLabel(s)}</div></div>
+  <div class="line">👤 <div><b>تماس:</b> ${s.contactPerson||"—"} | ⭐ ${s.rating||0} از 5</div></div>
+  <div class="btn-row" style="margin-top:14px">
+   ${s.mobile?`<a class="btn btn-primary" href="tel:${s.mobile}">☎️ تماس</a>`:""}
+   ${s.whatsapp?`<a class="btn btn-green" href="https://wa.me/${String(s.whatsapp).replace(/\D/g,"")}" target="_blank">💬 واتساپ</a>`:""}
+   ${actions?`<button class="btn btn-soft" onclick="editSupplier('${s.id}')">ویرایش</button><button class="btn btn-danger" onclick="deleteSupplier('${s.id}')">حذف</button>`:""}
+  </div>
+ </div>`;
+}
+
+function renderSuppliers(){
+ document.getElementById("suppliers").innerHTML=`
+ <div class="section-head"><div><h2>بانک تأمین‌کنندگان</h2><p>ثبت، جستجو و مدیریت اطلاعات تأمین‌کنندگان</p></div><button class="btn btn-primary" onclick="newSupplier()">+ افزودن تأمین‌کننده</button></div>
+ <div class="panel"><input id="supplierSearch" class="input" oninput="renderSupplierList()" placeholder="جستجو در نام، محصول، شهر یا استان..."></div>
+ <div id="supplierList" class="grid-2"></div>`;
+ renderSupplierList();
+}
+function renderSupplierList(){
+ let q=norm(document.getElementById("supplierSearch")?.value);
+ let arr=data.suppliers.filter(s=>norm([s.name,s.mainCity,s.mainProvince,join(s.products),areaLabel(s)].join(" ")).includes(q));
+ document.getElementById("supplierList").innerHTML=arr.length?arr.map(s=>supplierCard(s,true)).join(""):`<div class="empty">تأمین‌کننده‌ای ثبت نشده است.</div>`;
+}
+function newSupplier(){editingSupplierId=null;supplierStep=1;supplierDraft={name:"",types:[],mainProvince:"",mainCity:"",categories:[],products:[],serviceAreas:[],contactPerson:"",contactRole:"مدیر فروش",mobile:"",phone:"",whatsapp:"",website:"",paymentTerms:[],deliveryMethods:[],reliability:"جدید",rating:3,ratingReasons:[],lastContact:today(),notes:""};showPage("supplierForm")}
+function editSupplier(id){editingSupplierId=id;supplierDraft=JSON.parse(JSON.stringify(data.suppliers.find(s=>s.id===id)));supplierStep=1;showPage("supplierForm")}
+function deleteSupplier(id){if(!confirm("این تأمین‌کننده حذف شود؟"))return;data.suppliers=data.suppliers.filter(s=>s.id!==id);saveData();toast("حذف شد");renderAll()}
+function renderSupplierForm(){
+ let d=supplierDraft||{};
+ let html=`<div class="panel"><div class="section-head"><div><h2>${editingSupplierId?"ویرایش تأمین‌کننده":"افزودن تأمین‌کننده"}</h2><p>مرحله ${supplierStep} از 7</p></div><button class="btn btn-soft" onclick="showPage('suppliers')">بستن</button></div><div class="stepbar">${Array.from({length:7}).map((_,i)=>`<div class="step ${i<supplierStep?"active":""}"></div>`).join("")}</div></div><div class="panel">`;
+ if(supplierStep===1)html+=step1(d);
+ if(supplierStep===2)html+=step2(d);
+ if(supplierStep===3)html+=step3(d);
+ if(supplierStep===4)html+=step4(d);
+ if(supplierStep===5)html+=step5(d);
+ if(supplierStep===6)html+=step6(d);
+ if(supplierStep===7)html+=step7(d);
+ html+=`<div class="btn-row" style="margin-top:18px;border-top:1px solid var(--line);padding-top:14px;justify-content:space-between"><button class="btn btn-soft" onclick="prevSupplierStep()" ${supplierStep===1?"disabled":""}>قبلی</button>${supplierStep<7?`<button class="btn btn-primary" onclick="nextSupplierStep()">بعدی</button>`:`<button class="btn btn-primary" onclick="saveSupplier()">ذخیره تأمین‌کننده</button>`}</div></div>`;
+ document.getElementById("supplierForm").innerHTML=html;
+}
+function updateSupplierField(k,v){supplierDraft[k]=v}
+function toggleArr(obj,key,val){obj[key]=obj[key]||[];obj[key]=obj[key].includes(val)?obj[key].filter(x=>x!==val):[...obj[key],val]}
+function pillGroup(title,options,selected,key){return `<div><div class="mini-title">${title}</div><div class="check-grid">${options.map(o=>`<button class="check-pill ${(selected||[]).includes(o)?"active":""}" onclick="toggleSupplier('${key}', '${encodeURIComponent(o)}')"><span>${o}</span>${(selected||[]).includes(o)?"✓":""}</button>`).join("")}</div></div>`}
+function toggleSupplier(k,encoded){toggleArr(supplierDraft,k,decodeURIComponent(encoded));renderSupplierForm()}
+function step1(d){return `<div class="form-grid"><label><span>نام شرکت / فروشنده</span><input class="input" value="${d.name||""}" oninput="updateSupplierField('name',this.value)" placeholder="مثلاً آذران پلاستیک"></label>${pillGroup("نوع تأمین‌کننده",supplierTypes,d.types,"types")}</div>`}
+function step2(d){return pillGroup("دسته‌بندی‌های قابل تأمین",categories.map(c=>c.name),d.categories,"categories")}
+function step3(d){let products=categories.filter(c=>(d.categories||[]).includes(c.name)).flatMap(c=>c.products);return `${pillGroup("محصولات قابل تأمین",products,d.products,"products")}<div class="selected-box"><b>افزودن محصول جدید</b><div class="btn-row" style="margin-top:8px"><input id="newProductInput" class="input" style="max-width:360px" placeholder="اگر محصول در لیست نبود"><button class="btn btn-primary" onclick="addSupplierProduct()">افزودن</button></div></div>`}
+function addSupplierProduct(){let v=document.getElementById("newProductInput").value.trim();if(!v)return;supplierDraft.products=unique([...(supplierDraft.products||[]),v]);renderSupplierForm()}
+function step4(d){let mainP=provinces.find(p=>p.name===d.mainProvince);return `<div class="form-grid"><label><span>استان محل فعالیت اصلی</span><select class="input" onchange="supplierDraft.mainProvince=this.value;supplierDraft.mainCity='';renderSupplierForm()">${provinceOptions(d.mainProvince)}</select></label><label><span>شهر محل فعالیت اصلی</span><select class="input" onchange="supplierDraft.mainCity=this.value">${cityOptions(d.mainProvince,d.mainCity)}</select></label></div><div class="panel" style="background:#f8fafc"><div class="mini-title">شهرهای قابل ارسال / تحت پوشش</div><div class="form-grid"><label><span>انتخاب استان</span><select id="serviceProvince" class="input" onchange="renderServiceCities()">${provinceOptions("")}</select></label><label><span>جستجوی شهر</span><input id="serviceCitySearch" class="input" oninput="renderServiceCities()" placeholder="مثلاً کرج"></label></div><div class="btn-row" style="margin-top:10px"><button class="btn btn-soft" onclick="selectAllServiceCities()">انتخاب همه شهرها</button><button class="btn btn-soft" onclick="clearServiceProvince()">پاک کردن این استان</button></div><div id="serviceCitiesBox" style="margin-top:12px"></div><div id="selectedServiceAreas" style="margin-top:12px">${selectedAreasHtml()}</div></div>`}
+function selectedAreasHtml(){return (supplierDraft.serviceAreas||[]).map(a=>`<div class="selected-box"><b style="color:var(--navy)">${a.province}: </b>${join(a.cities)}</div>`).join("")}
+function renderServiceCities(){let pn=document.getElementById("serviceProvince")?.value;let q=norm(document.getElementById("serviceCitySearch")?.value);let p=provinces.find(x=>x.name===pn);let box=document.getElementById("serviceCitiesBox");if(!p||!box){if(box)box.innerHTML="";return}let area=(supplierDraft.serviceAreas||[]).find(a=>a.province===pn);let selected=area?area.cities:[];box.innerHTML=`<div class="check-grid">${p.cities.filter(c=>norm(c).includes(q)).map(c=>`<button class="check-pill ${selected.includes(c)?"active":""}" onclick="toggleServiceCity('${pn}','${c}')"><span>${c}</span>${selected.includes(c)?"✓":""}</button>`).join("")}</div>`}
+function toggleServiceCity(pn,city){let areas=supplierDraft.serviceAreas||[];let area=areas.find(a=>a.province===pn);if(area){area.cities=area.cities.includes(city)?area.cities.filter(c=>c!==city):[...area.cities,city];areas=areas.filter(a=>a.cities.length)}else areas.push({province:pn,cities:[city]});supplierDraft.serviceAreas=areas;renderServiceCities();document.getElementById("selectedServiceAreas").innerHTML=selectedAreasHtml()}
+function selectAllServiceCities(){let pn=document.getElementById("serviceProvince")?.value;let p=provinces.find(x=>x.name===pn);if(!p)return;let areas=(supplierDraft.serviceAreas||[]).filter(a=>a.province!==pn);areas.push({province:pn,cities:[...p.cities]});supplierDraft.serviceAreas=areas;renderServiceCities();document.getElementById("selectedServiceAreas").innerHTML=selectedAreasHtml()}
+function clearServiceProvince(){let pn=document.getElementById("serviceProvince")?.value;if(!pn)return;supplierDraft.serviceAreas=(supplierDraft.serviceAreas||[]).filter(a=>a.province!==pn);renderServiceCities();document.getElementById("selectedServiceAreas").innerHTML=selectedAreasHtml()}
+function step5(d){return `<div class="form-grid"><label><span>نام شخص تماس</span><input class="input" value="${d.contactPerson||""}" oninput="updateSupplierField('contactPerson',this.value)"></label><label><span>سمت شخص تماس</span><select class="input" onchange="updateSupplierField('contactRole',this.value)">${optionList(["مدیرعامل","مدیر فروش","کارشناس فروش","مسئول دفتر","مسئول بازرگانی","مسئول فنی","انباردار","سایر"],d.contactRole)}</select></label><label><span>موبایل</span><input class="input" value="${d.mobile||""}" oninput="updateSupplierField('mobile',this.value)"></label><label><span>واتساپ</span><input class="input" value="${d.whatsapp||""}" oninput="updateSupplierField('whatsapp',this.value)"></label><label><span>تلفن ثابت</span><input class="input" value="${d.phone||""}" oninput="updateSupplierField('phone',this.value)"></label><label><span>وب‌سایت</span><input class="input" value="${d.website||""}" oninput="updateSupplierField('website',this.value)"></label></div>`}
+function step6(d){return `<div class="grid-2">${pillGroup("شرایط پرداخت",paymentTerms,d.paymentTerms,"paymentTerms")}${pillGroup("روش ارسال",deliveryMethods,d.deliveryMethods,"deliveryMethods")}</div>`}
+function step7(d){return `<div class="form-grid"><label><span>وضعیت اعتبار</span><select class="input" onchange="updateSupplierField('reliability',this.value)">${optionList(reliabilityStatuses,d.reliability)}</select></label><label><span>امتیاز ۱ تا ۵</span><input class="input" type="number" min="1" max="5" value="${d.rating||3}" oninput="updateSupplierField('rating',Number(this.value))"></label></div><br>${pillGroup("دلایل امتیاز",ratingReasons,d.ratingReasons,"ratingReasons")}<br><label><span>توضیحات</span><textarea class="input" oninput="updateSupplierField('notes',this.value)">${d.notes||""}</textarea></label>`}
+function nextSupplierStep(){if(supplierStep===1&&!supplierDraft.name.trim())return toast("نام تأمین‌کننده را وارد کن");supplierStep++;renderSupplierForm();setTimeout(renderServiceCities,20)}
+function prevSupplierStep(){supplierStep=Math.max(1,supplierStep-1);renderSupplierForm();setTimeout(renderServiceCities,20)}
+function saveSupplier(){if(!supplierDraft.name.trim())return toast("نام تأمین‌کننده را وارد کن");if(editingSupplierId){data.suppliers=data.suppliers.map(s=>s.id===editingSupplierId?{...supplierDraft,id:editingSupplierId}:s)}else{data.suppliers=[{...supplierDraft,id:uid("SUP")},...data.suppliers]}saveData();toast("تأمین‌کننده ذخیره شد");showPage("suppliers")}
+
+function renderCustomers(){
+ document.getElementById("customers").innerHTML=`<div class="section-head"><div><h2>بانک مشتریان</h2><p>ثبت و مدیریت مشتریان و خریداران احتمالی</p></div><button class="btn btn-primary" onclick="newCustomer()">+ افزودن مشتری</button></div><div class="panel"><input id="customerSearch" class="input" oninput="renderCustomerList()" placeholder="جستجو در مشتریان..."></div><div id="customerList" class="grid-2"></div>`;
+ renderCustomerList();
+}
+function renderCustomerList(){let q=norm(document.getElementById("customerSearch")?.value);let arr=data.customers.filter(c=>norm([c.name,c.type,c.city,join(c.productsNeeded)].join(" ")).includes(q));document.getElementById("customerList").innerHTML=arr.length?arr.map(customerCard).join(""):`<div class="empty">مشتری‌ای ثبت نشده است.</div>`}
+function customerCard(c){return `<div class="card"><div class="card-head"><div><h4>${c.name}</h4><div class="meta">${c.type} | ${c.province||"—"} - ${c.city||"—"}</div></div><span class="status ok">${c.status||"جدید"}</span></div><div class="tags">${(c.productsNeeded||[]).map(p=>`<span class="tag">${p}</span>`).join("")}</div><div class="line">👤 <div><b>شخص تماس:</b> ${c.contactPerson||"—"}</div></div><div class="line">☎️ <div><b>موبایل:</b> ${c.mobile||"—"}</div></div><div class="btn-row" style="margin-top:14px">${c.mobile?`<a class="btn btn-primary" href="tel:${c.mobile}">تماس</a>`:""}<button class="btn btn-soft" onclick="editCustomer('${c.id}')">ویرایش</button><button class="btn btn-danger" onclick="deleteCustomer('${c.id}')">حذف</button></div></div>`}
+function newCustomer(){editingCustomerId=null;customerDraft={name:"",type:"پیمانکار",province:"",city:"",productsNeeded:[],contactPerson:"",mobile:"",status:"جدید",notes:""};showPage("customerForm")}
+function editCustomer(id){editingCustomerId=id;customerDraft=JSON.parse(JSON.stringify(data.customers.find(c=>c.id===id)));showPage("customerForm")}
+function deleteCustomer(id){if(!confirm("این مشتری حذف شود؟"))return;data.customers=data.customers.filter(c=>c.id!==id);saveData();toast("حذف شد");renderAll()}
+function renderCustomerForm(){
+ let d=customerDraft||{};let p=provinces.find(x=>x.name===d.province);
+ document.getElementById("customerForm").innerHTML=`<div class="panel"><div class="section-head"><div><h2>${editingCustomerId?"ویرایش مشتری":"افزودن مشتری"}</h2><p>اطلاعات مشتری را ساختاریافته وارد کن.</p></div><button class="btn btn-soft" onclick="showPage('customers')">بستن</button></div><div class="form-grid"><label><span>نام مشتری / سازمان</span><input class="input" value="${d.name||""}" oninput="customerDraft.name=this.value"></label><label><span>نوع مشتری</span><select class="input" onchange="customerDraft.type=this.value">${optionList(customerTypes,d.type)}</select></label><label><span>استان</span><select class="input" onchange="customerDraft.province=this.value;customerDraft.city='';renderCustomerForm()">${provinceOptions(d.province)}</select></label><label><span>شهر</span><select class="input" onchange="customerDraft.city=this.value">${cityOptions(d.province,d.city)}</select></label><label><span>شخص تماس</span><input class="input" value="${d.contactPerson||""}" oninput="customerDraft.contactPerson=this.value"></label><label><span>موبایل</span><input class="input" value="${d.mobile||""}" oninput="customerDraft.mobile=this.value"></label><label><span>وضعیت مشتری</span><select class="input" onchange="customerDraft.status=this.value">${optionList(customerStatuses,d.status)}</select></label><label><span>افزودن محصول موردنیاز</span><div class="btn-row"><input id="customerProductInput" class="input" placeholder="مثلاً سقف PVC"><button class="btn btn-primary" onclick="addCustomerProduct()">افزودن</button></div></label><label style="grid-column:1/-1"><span>توضیحات</span><textarea class="input" oninput="customerDraft.notes=this.value">${d.notes||""}</textarea></label></div><div class="tags">${(d.productsNeeded||[]).map(p=>`<span class="tag">${p}</span>`).join("")}</div><div class="btn-row" style="margin-top:18px"><button class="btn btn-primary" onclick="saveCustomer()">ذخیره مشتری</button></div></div>`;
+}
+function addCustomerProduct(){let v=document.getElementById("customerProductInput").value.trim();if(!v)return;customerDraft.productsNeeded=unique([...(customerDraft.productsNeeded||[]),v]);renderCustomerForm()}
+function saveCustomer(){if(!customerDraft.name.trim())return toast("نام مشتری را وارد کن");if(editingCustomerId)data.customers=data.customers.map(c=>c.id===editingCustomerId?{...customerDraft,id:editingCustomerId}:c);else data.customers=[{...customerDraft,id:uid("CUS")},...data.customers];saveData();toast("مشتری ذخیره شد");showPage("customers")}
+
+function renderProducts(){
+ document.getElementById("products").innerHTML=`<div class="panel"><div class="panel-title"><div class="icon">📦</div><div><h3>بانک محصولات</h3><p>محصولات قابل انتخاب در فرم تأمین‌کننده</p></div></div><div class="grid-3"><input id="newProductName" class="input" placeholder="نام محصول جدید"><select id="newProductCat" class="input">${categories.map(c=>`<option>${c.name}</option>`).join("")}</select><button class="btn btn-primary" onclick="addProduct()">افزودن</button></div></div><div class="panel"><input id="productSearch" class="input" oninput="renderProductList()" placeholder="جستجو در محصولات..."></div><div id="productList" class="grid-3"></div>`;
+ renderProductList();
+}
+function addProduct(){let name=document.getElementById("newProductName").value.trim();let category=document.getElementById("newProductCat").value;if(!name)return toast("نام محصول را وارد کن");data.products=[{id:uid("PRD"),name,category,unit:"",specs:""},...data.products];saveData();toast("محصول ثبت شد");renderProducts()}
+function renderProductList(){let q=norm(document.getElementById("productSearch")?.value);let arr=data.products.filter(p=>norm([p.name,p.category].join(" ")).includes(q));document.getElementById("productList").innerHTML=arr.map(p=>`<div class="card"><h4>${p.name}</h4><div class="meta">${p.category}</div></div>`).join("")}
+
+function renderInquiries(){
+ document.getElementById("inquiries").innerHTML=`<div class="panel"><div class="panel-title"><div class="icon">📋</div><div><h3>ثبت استعلام</h3><p>نیاز مشتری را ثبت کن و بعد تأمین‌کننده مناسب را پیدا کن.</p></div></div><div class="form-grid"><label><span>نام مشتری</span><input id="inqCustomer" class="input"></label><label><span>نام کالا</span><input id="inqProduct" class="input"></label><label><span>مقدار</span><input id="inqQty" class="input"></label><label><span>شهر تحویل</span><input id="inqCity" class="input"></label><label><span>مهلت پاسخ</span><input id="inqDeadline" type="date" class="input"></label><label><span>وضعیت</span><select id="inqStatus" class="input">${optionList(inquiryStatuses,"جدید")}</select></label><label style="grid-column:1/-1"><span>توضیحات</span><textarea id="inqNotes" class="input"></textarea></label></div><div class="btn-row" style="margin-top:14px"><button class="btn btn-primary" onclick="saveInquiry()">ثبت استعلام</button></div></div><div id="inquiryList" class="grid-2"></div>`;
+ renderInquiryList();
+}
+function saveInquiry(){let product=document.getElementById("inqProduct").value.trim();if(!product)return toast("نام کالا را وارد کن");data.inquiries=[{id:uid("INQ"),date:today(),customerName:document.getElementById("inqCustomer").value,product,quantity:document.getElementById("inqQty").value,deliveryCity:document.getElementById("inqCity").value,deadline:document.getElementById("inqDeadline").value,status:document.getElementById("inqStatus").value,notes:document.getElementById("inqNotes").value},...data.inquiries];saveData();toast("استعلام ثبت شد");renderInquiries()}
+function renderInquiryList(){document.getElementById("inquiryList").innerHTML=data.inquiries.map(i=>`<div class="card"><h4>${i.product}</h4><div class="meta">${i.customerName||"بدون مشتری"} | ${i.deliveryCity||"—"} | ${i.status}</div><p class="meta">مقدار: ${i.quantity||"—"} | مهلت: ${i.deadline||"—"}</p></div>`).join("")}
+
+function renderReports(){
+ document.getElementById("reports").innerHTML=`<div class="panel"><div class="panel-title"><div class="icon">📊</div><div><h3>گزارش‌ها و خروجی</h3><p>خروجی PDF و Excel از تأمین‌کنندگان و مشتریان</p></div></div><div class="grid-2"><div class="export-card"><h3>خروجی تأمین‌کنندگان</h3><p class="meta">تعداد رکورد: ${data.suppliers.length}</p><div class="export-grid"><button class="btn btn-danger" onclick="exportSuppliersPDF()">📄 خروجی PDF</button><button class="btn btn-green" onclick="exportSuppliersExcel()">📗 خروجی Excel</button></div></div><div class="export-card"><h3>خروجی مشتریان</h3><p class="meta">تعداد رکورد: ${data.customers.length}</p><div class="export-grid"><button class="btn btn-danger" onclick="exportCustomersPDF()">📄 خروجی PDF</button><button class="btn btn-green" onclick="exportCustomersExcel()">📗 خروجی Excel</button></div></div></div></div>`;
+}
+function download(filename,content,type){let blob=new Blob([content],{type});let url=URL.createObjectURL(blob);let a=document.createElement("a");a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url)}
+function excel(title,rows,cols,file){let html=`<html dir="rtl"><head><meta charset="UTF-8"></head><body><table border="1"><tr><th colspan="${cols.length}">${title}</th></tr><tr>${cols.map(c=>`<th>${c.label}</th>`).join("")}</tr>${rows.map(r=>`<tr>${cols.map(c=>`<td>${String(c.val(r)||"").replace(/</g,"&lt;")}</td>`).join("")}</tr>`).join("")}</table></body></html>`;download(file+".xls",html,"application/vnd.ms-excel;charset=utf-8")}
+function pdf(title,rows,cols){let html=`<html dir="rtl"><head><meta charset="UTF-8"><style>body{font-family:Tahoma;padding:22px;direction:rtl}h1{color:#0b2d5c}table{width:100%;border-collapse:collapse;font-size:11px}th{background:#0b2d5c;color:#fff}td,th{border:1px solid #ddd;padding:7px}</style></head><body><h1>${title}</h1><p>تاریخ گزارش: ${new Date().toLocaleDateString("fa-IR")}</p><table><tr>${cols.map(c=>`<th>${c.label}</th>`).join("")}</tr>${rows.map(r=>`<tr>${cols.map(c=>`<td>${String(c.val(r)||"").replace(/</g,"&lt;")}</td>`).join("")}</tr>`).join("")}</table><script>window.onload=function(){window.print()}</script></body></html>`;let w=window.open("","_blank");w.document.write(html);w.document.close()}
+const supplierCols=[{label:"نام",val:s=>s.name},{label:"نوع",val:s=>join(s.types)},{label:"استان اصلی",val:s=>s.mainProvince},{label:"شهر اصلی",val:s=>s.mainCity},{label:"محصولات",val:s=>join(s.products)},{label:"شهرهای پوشش",val:s=>areaLabel(s)},{label:"شخص تماس",val:s=>s.contactPerson},{label:"موبایل",val:s=>s.mobile},{label:"واتساپ",val:s=>s.whatsapp},{label:"اعتبار",val:s=>s.reliability},{label:"امتیاز",val:s=>s.rating},{label:"توضیحات",val:s=>s.notes}];
+const customerCols=[{label:"نام",val:c=>c.name},{label:"نوع",val:c=>c.type},{label:"استان",val:c=>c.province},{label:"شهر",val:c=>c.city},{label:"محصولات موردنیاز",val:c=>join(c.productsNeeded)},{label:"شخص تماس",val:c=>c.contactPerson},{label:"موبایل",val:c=>c.mobile},{label:"وضعیت",val:c=>c.status},{label:"توضیحات",val:c=>c.notes}];
+function exportSuppliersExcel(){excel("گزارش تأمین‌کنندگان",data.suppliers,supplierCols,"suppliers-report")}
+function exportCustomersExcel(){excel("گزارش مشتریان",data.customers,customerCols,"customers-report")}
+function exportSuppliersPDF(){pdf("گزارش تأمین‌کنندگان",data.suppliers,supplierCols)}
+function exportCustomersPDF(){pdf("گزارش مشتریان",data.customers,customerCols)}
+
+function renderSettings(){
+ document.getElementById("settings").innerHTML=`<div class="panel"><div class="panel-title"><div class="icon">☰</div><div><h3>تنظیمات</h3><p>مدیریت داده‌های اپ</p></div></div><div class="btn-row"><button class="btn btn-soft" onclick="loadSamples()">بارگذاری نمونه</button><button class="btn btn-danger" onclick="resetAll()">حذف همه اطلاعات</button></div></div>`;
+}
+function resetAll(){if(!confirm("همه اطلاعات حذف شود؟"))return;data={suppliers:[],customers:[],products:[],inquiries:[]};saveData();toast("اطلاعات حذف شد");renderAll()}
+function loadSamples(){data=JSON.parse(JSON.stringify(seedData));saveData();toast("داده نمونه بارگذاری شد");renderAll()}
+
+const originalShowPage = showPage;
+showPage = function(id){ originalShowPage(id); if(id==="supplierForm") { renderSupplierForm(); setTimeout(renderServiceCities,20); } if(id==="customerForm") renderCustomerForm(); };
+
+renderAll();
 </script>
 </body>
 </html>
